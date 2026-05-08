@@ -3,452 +3,1154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Mustafa Dryosh | Cybersecurity Professional Portfolio</title>
+    <title>Mustafa Dryosh | Cybersecurity Professional</title>
     
-    <!-- Bootstrap 5 CSS + Icons + Fonts -->
+    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Premium Fonts: Clash Display + Satoshi-like via DM Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #f5f7fb;
-            color: #1a1a2e;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-        
+        /* ============================================
+           DESIGN SYSTEM
+        ============================================ */
         :root {
-            --primary: #0d6efd;
-            --primary-dark: #0a58ca;
-            --primary-light: #3b82f6;
-            --secondary: #6c757d;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --gradient: linear-gradient(135deg, #0d6efd 0%, #3b82f6 50%, #00d2ff 100%);
+            --blue:        #1a6cf5;
+            --blue-light:  #4d8ff7;
+            --blue-dark:   #0f4dbf;
+            --cyan:        #00c6ff;
+            --navy:        #080f1e;
+            --navy-2:      #0d1829;
+            --navy-3:      #111f35;
+            --slate:       #1e2d45;
+            --card-bg:     #ffffff;
+            --text:        #0b1525;
+            --text-2:      #344563;
+            --text-muted:  #64748b;
+            --border:      #e2e8f0;
+            --success:     #10b981;
+            --warning:     #f59e0b;
+            --grad:        linear-gradient(135deg, #1a6cf5 0%, #00c6ff 100%);
+            --grad-soft:   linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%);
+            --shadow-sm:   0 2px 8px rgba(26,108,245,0.08);
+            --shadow-md:   0 8px 24px rgba(26,108,245,0.12);
+            --shadow-lg:   0 20px 48px rgba(26,108,245,0.16);
+            --radius:      16px;
+            --radius-lg:   24px;
         }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #f0f4fc;
+            color: var(--text);
+            overflow-x: hidden;
+            font-size: 16px;
+            line-height: 1.7;
         }
-        ::-webkit-scrollbar-track {
-            background: #e2e8f0;
+
+        /* ============================================
+           SCROLLBAR
+        ============================================ */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #e2e8f0; }
+        ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 6px; }
+
+        /* ============================================
+           TYPOGRAPHY
+        ============================================ */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Syne', sans-serif;
+            letter-spacing: -0.02em;
         }
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 10px;
-        }
-        
+
+        /* ============================================
+           NAVBAR
+        ============================================ */
         .navbar {
-            background: rgba(15, 23, 42, 0.98);
-            backdrop-filter: blur(12px);
-            padding: 1rem 0;
-            transition: all 0.3s;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            background: rgba(8, 15, 30, 0.97);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 0.9rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            transition: padding 0.3s;
         }
-        
+
         .navbar-brand {
+            font-family: 'Syne', sans-serif;
             font-weight: 800;
-            font-size: 1.6rem;
-            background: var(--gradient);
+            font-size: 1.5rem;
+            background: var(--grad);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            letter-spacing: -0.03em;
         }
-        
+
         .nav-link {
+            font-family: 'DM Sans', sans-serif;
             font-weight: 500;
-            color: #e2e8f0 !important;
-            transition: all 0.3s;
-            margin: 0 0.25rem;
-            padding: 0.5rem 1rem !important;
+            font-size: 0.875rem;
+            color: #cbd5e1 !important;
+            padding: 0.45rem 0.85rem !important;
             border-radius: 8px;
+            transition: all 0.2s;
+            margin: 0 0.1rem;
         }
-        
-        .nav-link:hover {
-            color: white !important;
-            background: rgba(59,130,246,0.2);
+        .nav-link:hover { color: #fff !important; background: rgba(26,108,245,0.18); }
+
+        .navbar-toggler {
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 0.4rem 0.6rem;
         }
-        
+        .navbar-toggler-icon { filter: invert(1); }
+
+        /* Mobile nav dropdown */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: rgba(8,15,30,0.98);
+                border-radius: 12px;
+                margin-top: 0.5rem;
+                padding: 0.75rem;
+                border: 1px solid rgba(255,255,255,0.08);
+            }
+            .nav-link { padding: 0.6rem 1rem !important; border-radius: 10px; }
+        }
+
+        /* ============================================
+           HERO
+        ============================================ */
         .hero {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-            padding: 140px 0 90px;
-            color: white;
+            background: var(--navy);
+            padding: 130px 0 80px;
             position: relative;
             overflow: hidden;
+            color: white;
         }
-        
+
+        /* Animated background grid */
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(13,110,253,0.15), transparent 50%);
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(26,108,245,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(26,108,245,0.06) 1px, transparent 1px);
+            background-size: 48px 48px;
+            animation: gridPan 20s linear infinite;
         }
-        
+
+        @keyframes gridPan {
+            from { transform: translateY(0); }
+            to   { transform: translateY(48px); }
+        }
+
+        /* Radial glow */
+        .hero-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(26,108,245,0.2) 0%, transparent 70%);
+            top: -100px;
+            left: -100px;
+            pointer-events: none;
+        }
+        .hero-glow-2 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,198,255,0.15) 0%, transparent 70%);
+            bottom: -80px;
+            right: -50px;
+            pointer-events: none;
+        }
+
+        /* Bottom fade */
         .hero::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: linear-gradient(to top, #f5f7fb, transparent);
+            bottom: 0; left: 0; right: 0;
+            height: 90px;
+            background: linear-gradient(to top, #f0f4fc, transparent);
         }
-        
-        .profile-img {
-            width: 200px;
-            height: 200px;
+
+        .hero-content { position: relative; z-index: 1; }
+
+        .profile-wrap {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-ring {
+            position: absolute;
+            inset: -6px;
             border-radius: 50%;
-            border: 4px solid rgba(13,110,253,0.5);
+            background: var(--grad);
+            z-index: 0;
+            animation: spin 8s linear infinite;
+            /* dashed effect using conic */
+            background: conic-gradient(
+                from 0deg,
+                #1a6cf5 0deg 30deg, transparent 30deg 60deg,
+                #1a6cf5 60deg 90deg, transparent 90deg 120deg,
+                #00c6ff 120deg 150deg, transparent 150deg 180deg,
+                #1a6cf5 180deg 210deg, transparent 210deg 240deg,
+                #1a6cf5 240deg 270deg, transparent 270deg 300deg,
+                #00c6ff 300deg 330deg, transparent 330deg 360deg
+            );
+            border-radius: 50%;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
             object-fit: cover;
-            box-shadow: 0 25px 40px rgba(0,0,0,0.3);
-            transition: all 0.4s;
+            position: relative;
+            z-index: 1;
+            border: 4px solid var(--navy);
+            display: block;
         }
-        
-        .profile-img:hover {
-            transform: scale(1.03);
-            border-color: #0d6efd;
+
+        @media (min-width: 768px) {
+            .profile-img { width: 180px; height: 180px; }
         }
-        
-        @media (max-width: 768px) {
-            .hero { padding: 100px 0 60px; }
-            .profile-img { width: 140px; height: 140px; }
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-header h2 {
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
+
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
             font-weight: 800;
-            background: var(--gradient);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h1 span {
+            background: var(--grad);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            display: inline-block;
-            padding-bottom: 0.5rem;
         }
-        
-        .section-header .subtitle {
-            color: var(--secondary);
-            font-size: 1rem;
-            margin-top: 0.5rem;
+
+        .hero-tagline {
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
         }
-        
-        .card {
-            border: none;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: all 0.3s;
-            overflow: hidden;
-            background: white;
+
+        .hero-location {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin-bottom: 1.5rem;
         }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(13,110,253,0.1);
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.75rem;
         }
-        
-        /* Skill Card Image Styling */
-        .skill-card-img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-            transition: transform 0.4s;
-        }
-        
-        .card:hover .skill-card-img {
-            transform: scale(1.05);
-        }
-        
-        .stat-card {
-            text-align: center;
-            padding: 1.5rem;
-            border-radius: 20px;
-            background: white;
-            transition: all 0.3s;
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .skill-badge {
-            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
-            color: #1e40af;
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
-            font-size: 0.85rem;
+
+        .hero-badge {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #cbd5e1;
+            padding: 0.35rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
             font-weight: 500;
-            margin: 0.25rem;
-            display: inline-block;
-            transition: all 0.2s;
+            backdrop-filter: blur(6px);
         }
-        
-        .skill-badge:hover {
-            transform: scale(1.05);
-            background: var(--gradient);
+
+        .btn-hero {
+            background: var(--grad);
+            border: none;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.01em;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        .btn-hero:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(26,108,245,0.4);
             color: white;
         }
-        
+
+        /* ============================================
+           SECTION COMMON
+        ============================================ */
+        section { padding: 5rem 0; }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--blue);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            line-height: 1.15;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .section-header { margin-bottom: 3rem; }
+
+        /* ============================================
+           STATS ROW
+        ============================================ */
+        .stats-section {
+            padding: 3.5rem 0;
+            background: white;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            border-radius: var(--radius);
+            position: relative;
+        }
+
+        .stat-number {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            background: var(--grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .stat-divider {
+            width: 1px;
+            background: var(--border);
+            align-self: stretch;
+            margin: 0.5rem 0;
+        }
+
+        /* ============================================
+           CARDS
+        ============================================ */
+        .card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            background: var(--card-bg);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ============================================
+           ABOUT
+        ============================================ */
+        .about-section { background: #f8faff; }
+
+        .about-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            padding: 2.5rem;
+        }
+
+        @media (max-width: 576px) {
+            .about-card { padding: 1.5rem; }
+        }
+
+        .about-lead {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-2);
+            margin-bottom: 1.5rem;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+        .info-row:last-child { border-bottom: none; }
+
+        .info-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--grad-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue);
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .info-label { font-weight: 600; color: var(--text); margin-bottom: 0.1rem; font-size: 0.8rem; }
+        .info-value { color: var(--text-2); }
+
+        .quote-box {
+            background: var(--grad-soft);
+            border-left: 3px solid var(--blue);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .quote-box blockquote {
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--text-2);
+            margin-bottom: 0.5rem;
+        }
+        .quote-box cite { font-size: 0.8rem; color: var(--blue); font-weight: 600; }
+        .quote-box p { font-size: 0.88rem; color: var(--text-muted); margin-top: 0.75rem; margin-bottom: 0; }
+
+        /* ============================================
+           EXPERIENCE
+        ============================================ */
+        .exp-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            padding: 1.75rem;
+            margin-bottom: 1.25rem;
+            border-left: 4px solid var(--blue);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .exp-card:hover { transform: translateX(4px); box-shadow: var(--shadow-md); }
+
+        .exp-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.2rem;
+        }
+        .exp-company { color: var(--blue); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.75rem; }
+        .exp-card ul { padding-left: 1.1rem; color: var(--text-2); font-size: 0.9rem; }
+        .exp-card ul li { margin-bottom: 0.3rem; }
+
+        .badge-date {
+            background: var(--grad-soft);
+            color: var(--blue-dark);
+            border: 1px solid rgba(26,108,245,0.15);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* ============================================
+           EDUCATION
+        ============================================ */
+        .edu-section { background: #f8faff; }
+
+        .edu-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            padding: 2rem 2.25rem;
+            box-shadow: var(--shadow-sm);
+        }
+        @media (max-width: 576px) { .edu-card { padding: 1.25rem; } }
+
+        .edu-degree {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .course-list { list-style: none; padding: 0; margin: 0; }
+        .course-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-2);
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .course-list li:last-child { border-bottom: none; }
+        .course-list li::before {
+            content: '▸';
+            color: var(--blue);
+            font-size: 0.75rem;
+        }
+
+        .edu-alert {
+            background: var(--grad-soft);
+            border: 1px solid rgba(26,108,245,0.15);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            font-size: 0.88rem;
+            color: var(--text-2);
+        }
+
+        /* ============================================
+           SKILLS
+        ============================================ */
+        .skill-card-img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .card:hover .skill-card-img { transform: scale(1.04); }
+
+        .skill-card-body { padding: 1.25rem; }
+
+        .skill-card-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .skill-card-title i { color: var(--blue); }
+
+        .badge-skill {
+            display: inline-block;
+            background: #eff6ff;
+            color: #1d4ed8;
+            border: 1px solid #bfdbfe;
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            margin: 0.2rem 0.15rem;
+            transition: all 0.2s;
+        }
+        .badge-skill:hover {
+            background: var(--blue);
+            color: white;
+            border-color: var(--blue);
+            transform: translateY(-1px);
+        }
+
+        /* ============================================
+           XP CHALLENGES
+        ============================================ */
+        .challenge-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            height: 100%;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.25s, box-shadow 0.25s;
+            display: flex;
+            flex-direction: column;
+        }
+        .challenge-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+        .challenge-emoji {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .challenge-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.2rem;
+        }
+        .challenge-sub {
+            font-size: 0.78rem;
+            color: var(--blue);
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+        }
+        .challenge-desc {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            flex: 1;
+            line-height: 1.6;
+        }
+
+        .btn-sm-outline {
+            margin-top: 1rem;
+            background: transparent;
+            border: 1.5px solid var(--blue);
+            color: var(--blue);
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            align-self: flex-start;
+        }
+        .btn-sm-outline:hover { background: var(--blue); color: white; }
+
+        /* ============================================
+           NETLAB LABS
+        ============================================ */
+        .labs-section { background: #f8faff; }
+
+        .lab-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            height: 100%;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.25s, box-shadow 0.25s;
+            display: flex;
+            flex-direction: column;
+        }
+        .lab-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+        .lab-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.4rem;
+        }
+
+        .lab-status {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--success);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .lab-badges { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.6rem; }
+
         .lab-badge {
             background: linear-gradient(135deg, #10b981, #059669);
             color: white;
-            padding: 0.3rem 0.9rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+
+        .lab-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            flex: 1;
+            line-height: 1.5;
+        }
+
+        .lab-achievement {
+            background: var(--navy);
+            color: white;
+            border: none;
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lab-achievement::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--grad);
+            opacity: 0.12;
+        }
+
+        .lab-achievement-num {
+            font-family: 'Syne', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: var(--grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            position: relative;
+        }
+
+        /* ============================================
+           REFLECTIONS
+        ============================================ */
+        .reflect-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .reflect-item {
+            padding: 1.5rem 1.75rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 1rem;
+            transition: background 0.2s;
+        }
+        .reflect-item:last-child { border-bottom: none; }
+        .reflect-item:hover { background: #f8faff; }
+
+        .reflect-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--grad-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue);
+            flex-shrink: 0;
+            font-size: 1rem;
+        }
+
+        .reflect-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.4rem;
+        }
+
+        .reflect-body { font-size: 0.9rem; color: var(--text-2); line-height: 1.7; margin: 0; }
+
+        /* ============================================
+           WORD CLOUD
+        ============================================ */
+        .wordcloud-section { background: #f8faff; }
+
+        .wordcloud-wrap {
+            background: var(--navy);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .wordcloud-wrap::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--grad);
+            opacity: 0.06;
+        }
+
+        .wordcloud-img {
+            width: 100%;
+            border-radius: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .wordcloud-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.25rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .wc-tag {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #94a3b8;
+            padding: 0.25rem 0.7rem;
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 500;
-            margin: 0.2rem;
-            display: inline-block;
         }
-        
-        .exp-card {
-            border-left: 3px solid var(--primary);
-            padding: 1.5rem;
+
+        /* ============================================
+           DOCUMENTS
+        ============================================ */
+        .doc-card {
             background: white;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-            transition: all 0.3s;
-        }
-        
-        .exp-card:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-        
-        .contact-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            box-shadow: var(--shadow-sm);
+            height: 100%;
             text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
         }
-        
-        .contact-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 35px rgba(13,110,253,0.15);
+
+        .doc-icon-wrap {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: var(--grad-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--blue);
+            font-size: 1.6rem;
         }
-        
-        .contact-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
+
+        .doc-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text);
             margin-bottom: 1rem;
         }
-        
-        .wordcloud-container {
-            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-            padding: 2rem;
-            border-radius: 24px;
-            text-align: center;
-            margin: 2rem 0;
-        }
-        
-        .wordcloud-img {
-            max-width: 100%;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        
-        .btn-primary-custom {
-            background: var(--gradient);
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 40px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .btn-primary-custom:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(13,110,253,0.3);
-        }
-        
-        .btn-outline-custom {
-            background: transparent;
-            border: 1.5px solid var(--primary);
-            color: var(--primary);
-            padding: 0.4rem 1.2rem;
+
+        .btn-doc-toggle {
+            background: var(--grad-soft);
+            border: 1px solid rgba(26,108,245,0.15);
+            color: var(--blue-dark);
+            padding: 0.65rem 1.25rem;
             border-radius: 30px;
             font-size: 0.85rem;
-            transition: all 0.3s;
-        }
-        
-        .btn-outline-custom:hover {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .btn-doc-toggle {
-            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-            border: 1px solid #e2e8f0;
-            color: #1e293b;
-            padding: 0.7rem 1.5rem;
-            border-radius: 40px;
-            font-size: 0.9rem;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.25s;
             width: 100%;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
         }
-        
         .btn-doc-toggle:hover {
-            background: var(--gradient);
+            background: var(--grad);
             border-color: transparent;
             color: white;
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
-        
+
         .doc-list {
-            background: #f8fafc;
-            border-radius: 16px;
-            padding: 1rem;
-            margin-top: 1rem;
+            background: #f8faff;
+            border-radius: 12px;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
             display: none;
         }
-        
         .doc-list.show {
             display: block;
-            animation: fadeIn 0.3s ease;
+            animation: slideDown 0.25s ease;
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-8px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
-        
+
         .doc-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0.75rem 1rem;
+            padding: 0.65rem 0.85rem;
             background: white;
-            border-radius: 12px;
-            margin-bottom: 0.5rem;
-            transition: all 0.2s;
+            border-radius: 10px;
+            margin-bottom: 0.4rem;
+            font-size: 0.82rem;
+            border: 1px solid var(--border);
+            transition: border-color 0.2s;
+            gap: 0.5rem;
         }
-        
-        .doc-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        
-        .doc-item a {
-            color: var(--primary);
-            text-decoration: none;
+        .doc-item:last-child { margin-bottom: 0; }
+        .doc-item:hover { border-color: var(--blue-light); }
+
+        .doc-item-name {
+            color: var(--text-2);
             font-weight: 500;
+            text-align: left;
+            flex: 1;
+            min-width: 0;
         }
-        
-        .doc-item a:hover {
-            text-decoration: underline;
-        }
-        
-        .timeline-item {
-            padding: 1.2rem;
-            border-left: 3px solid var(--primary);
-            margin-bottom: 1.2rem;
-            background: white;
+
+        .doc-item-name span { display: block; }
+
+        .btn-doc-open {
+            background: var(--blue);
+            color: white;
+            border: none;
+            padding: 0.25rem 0.75rem;
             border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background 0.2s;
         }
-        
-        .footer {
-            background: #0f172a;
-            color: #94a3b8;
-            padding: 2rem 0;
+        .btn-doc-open:hover { background: var(--blue-dark); color: white; }
+
+        .btn-doc-dl {
+            background: var(--success);
+            color: white;
+            border: none;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+        .btn-doc-dl:hover { background: #059669; color: white; }
+
+        /* ============================================
+           CONTACT
+        ============================================ */
+        .contact-section { background: var(--navy); position: relative; overflow: hidden; }
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--grad);
+            opacity: 0.06;
+        }
+
+        .contact-section .section-label,
+        .contact-section .section-title,
+        .contact-section .section-subtitle { color: white; }
+        .contact-section .section-subtitle { color: #94a3b8; }
+        .contact-section .section-label { color: var(--cyan); }
+
+        .contact-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem 1.25rem;
             text-align: center;
+            cursor: pointer;
+            transition: all 0.25s;
+            position: relative;
         }
-        
-        @media (max-width: 576px) {
-            .container { padding-left: 1rem; padding-right: 1rem; }
-            .card { margin-bottom: 1rem; }
-            .skill-card-img { height: 120px; }
+        .contact-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+            border-color: rgba(26,108,245,0.4);
         }
-        
+
+        .contact-card-icon {
+            font-size: 2rem;
+            color: var(--blue-light);
+            margin-bottom: 0.75rem;
+        }
+        .contact-card h5 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.3rem;
+        }
+        .contact-card p { font-size: 0.82rem; color: #94a3b8; margin: 0; }
+
+        /* ============================================
+           FOOTER
+        ============================================ */
+        .footer {
+            background: #060c18;
+            color: #475569;
+            padding: 2.5rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .footer-brand {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 800;
+            background: var(--grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        .footer p { font-size: 0.82rem; margin: 0.25rem 0; }
+        .footer-divider { width: 48px; height: 2px; background: var(--grad); margin: 0.75rem auto; border-radius: 2px; }
+
+        /* ============================================
+           BACK TO TOP
+        ============================================ */
         .back-to-top {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--primary);
+            bottom: 24px;
+            right: 24px;
+            background: var(--blue);
             color: white;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             opacity: 0;
+            pointer-events: none;
             transition: all 0.3s;
-            z-index: 1000;
+            z-index: 999;
+            box-shadow: 0 4px 16px rgba(26,108,245,0.35);
         }
-        
-        .back-to-top.visible {
-            opacity: 1;
-        }
-        
-        .back-to-top:hover {
-            transform: translateY(-3px);
-            background: var(--primary-dark);
-        }
-        
-        .doc-icon {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .toast-message {
+        .back-to-top.visible { opacity: 1; pointer-events: all; }
+        .back-to-top:hover { transform: translateY(-3px); background: var(--blue-dark); }
+
+        /* ============================================
+           TOAST
+        ============================================ */
+        .toast-msg {
             position: fixed;
             bottom: 80px;
-            right: 20px;
-            background: #1e293b;
+            right: 24px;
+            background: var(--navy-3);
             color: white;
-            padding: 12px 24px;
+            padding: 0.75rem 1.25rem;
             border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
             z-index: 1100;
             opacity: 0;
-            transition: opacity 0.3s;
             pointer-events: none;
+            transition: opacity 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
         }
-        
-        .toast-message.show {
+        .toast-msg.show { opacity: 1; }
+
+        /* ============================================
+           MODAL
+        ============================================ */
+        .modal-content { border-radius: var(--radius-lg); overflow: hidden; border: none; }
+        .modal-header { background: var(--navy); color: white; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .modal-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; }
+        .btn-close { filter: invert(1); }
+        .modal-img { width: 100%; border-radius: 8px; }
+
+        /* ============================================
+           ANIMATIONS
+        ============================================ */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
             opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered children */
+        .stagger > * { transition-delay: calc(var(--i, 0) * 80ms); }
+
+        /* ============================================
+           HERO TYPING CURSOR
+        ============================================ */
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background: var(--cyan);
+            margin-left: 3px;
+            vertical-align: middle;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0; }
+        }
+
+        /* ============================================
+           RESPONSIVE TWEAKS
+        ============================================ */
+        @media (max-width: 768px) {
+            section { padding: 3.5rem 0; }
+            .hero { padding: 100px 0 60px; }
+        }
+
+        @media (max-width: 576px) {
+            section { padding: 2.75rem 0; }
+            .hero { padding: 88px 0 48px; }
+            .section-header { margin-bottom: 2rem; }
+            .about-card { padding: 1.25rem; }
+            .exp-card { padding: 1.25rem; }
+            .doc-item-name span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 140px; }
+        }
+
+        /* ============================================
+           CONTAINER PADDING
+        ============================================ */
+        @media (max-width: 576px) {
+            .container { padding-left: 1.1rem; padding-right: 1.1rem; }
         }
     </style>
 </head>
 <body>
 
-<!-- Toast Message for Coming Soon -->
-<div id="toastMsg" class="toast-message">
+<!-- Toast -->
+<div id="toastMsg" class="toast-msg">
     <i class="fas fa-clock me-2"></i> Coming Soon! 🚀
 </div>
 
-<!-- Navigation -->
+<!-- Back to Top -->
+<div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up fa-sm"></i>
+</div>
+
+<!-- ====================================================
+     NAVBAR
+===================================================== -->
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
         <a class="navbar-brand" href="#">MD</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -461,583 +1163,899 @@
                 <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                 <li class="nav-item"><a class="nav-link" href="#labs">Labs</a></li>
                 <li class="nav-item"><a class="nav-link" href="#reflections">Reflections</a></li>
-                <li class="nav-item"><a class="nav-link" href="#documents">Documents</a></li>
+                <li class="nav-item"><a class="nav-link" href="#documents">Docs</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-<!-- Hero Section -->
+<!-- ====================================================
+     HERO
+===================================================== -->
 <section id="home" class="hero">
-    <div class="container text-center position-relative">
-        <img src="images/profile.jpg" alt="Mustafa Dryosh" class="profile-img mb-4" onerror="this.src='https://placehold.co/200x200/1e293b/0d6efd?text=MD'">
-        <h1 class="display-4 fw-bold mb-2">Mustafa Dryosh</h1>
-        <p class="lead mb-2">Cybersecurity Professional | SOC Analyst Aspirant</p>
-        <p class="mb-3"><i class="fas fa-map-marker-alt me-1"></i> Houston, TX | <i class="fas fa-language me-1"></i> Bilingual (EN/AR)</p>
-        <div class="d-flex justify-content-center gap-2 flex-wrap mb-4">
-            <span class="badge bg-primary px-3 py-2">25 NETLAB Labs</span>
-            <span class="badge bg-success px-3 py-2">6 XP Challenges</span>
-            <span class="badge bg-info px-3 py-2">Active Directory</span>
-            <span class="badge bg-warning px-3 py-2">GPO Expert</span>
+    <div class="hero-glow"></div>
+    <div class="hero-glow-2"></div>
+    <div class="container text-center hero-content">
+        <div class="profile-wrap mx-auto">
+            <div class="profile-ring"></div>
+            <img src="images/profile.jpg"
+                 alt="Mustafa Dryosh"
+                 class="profile-img"
+                 onerror="this.src='https://placehold.co/200x200/0d1829/1a6cf5?text=MD'">
         </div>
-        <a href="#contact" class="btn btn-primary-custom">Connect With Me <i class="fas fa-arrow-right ms-2"></i></a>
+
+        <h1>Mustafa <span>Dryosh</span></h1>
+        <p class="hero-tagline">Cybersecurity Professional &nbsp;·&nbsp; SOC Analyst Aspirant<span class="cursor"></span></p>
+        <p class="hero-location">
+            <i class="fas fa-map-marker-alt me-1"></i> Houston, TX
+            &nbsp;·&nbsp;
+            <i class="fas fa-language me-1"></i> Bilingual EN / AR
+        </p>
+
+        <div class="hero-badges">
+            <span class="hero-badge"><i class="fas fa-flask me-1"></i> 25 NETLAB Labs</span>
+            <span class="hero-badge"><i class="fas fa-trophy me-1"></i> 6 XP Challenges</span>
+            <span class="hero-badge"><i class="fas fa-server me-1"></i> Active Directory</span>
+            <span class="hero-badge"><i class="fas fa-cog me-1"></i> GPO Expert</span>
+            <span class="hero-badge"><i class="fas fa-shield-alt me-1"></i> SOC Aspirant</span>
+        </div>
+
+        <a href="#contact" class="btn-hero">
+            Connect With Me <i class="fas fa-arrow-right fa-sm"></i>
+        </a>
     </div>
 </section>
 
-<!-- Main Content -->
-<div class="container py-5">
-
-    <!-- Stats Row -->
-    <div class="row g-4 mb-5" data-aos="fade-up">
-        <div class="col-6 col-md-3">
-            <div class="stat-card">
-                <div class="stat-number">25</div>
-                <p class="mb-0 text-muted">NETLAB Labs</p>
+<!-- ====================================================
+     STATS
+===================================================== -->
+<div class="stats-section">
+    <div class="container">
+        <div class="row g-0 align-items-center justify-content-center text-center">
+            <div class="col-6 col-sm-3">
+                <div class="stat-card">
+                    <div class="stat-number">25</div>
+                    <div class="stat-label">NETLAB Labs</div>
+                </div>
             </div>
-        </div>
-        <div class="col-6 col-md-3">
-            <div class="stat-card">
-                <div class="stat-number">6</div>
-                <p class="mb-0 text-muted">XP Challenges</p>
+            <div class="col-6 col-sm-3">
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">XP Challenges</div>
+                </div>
             </div>
-        </div>
-        <div class="col-6 col-md-3">
-            <div class="stat-card">
-                <div class="stat-number">4+</div>
-                <p class="mb-0 text-muted">Years Experience</p>
+            <div class="col-6 col-sm-3">
+                <div class="stat-card">
+                    <div class="stat-number">4+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
             </div>
-        </div>
-        <div class="col-6 col-md-3">
-            <div class="stat-card">
-                <div class="stat-number">2</div>
-                <p class="mb-0 text-muted">Languages</p>
+            <div class="col-6 col-sm-3">
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Languages</div>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- About Section -->
-    <section id="about" class="mb-5" data-aos="fade-up">
-        <div class="section-header">
-            <h2>About Me</h2>
-            <p class="subtitle">Who I am and what drives me in cybersecurity</p>
+<!-- ====================================================
+     ABOUT
+===================================================== -->
+<section id="about" class="about-section">
+    <div class="container">
+        <div class="section-header fade-up">
+            <span class="section-label">Background</span>
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Who I am and what drives me in cybersecurity</p>
         </div>
-        <div class="row">
-            <div class="col-lg-10 mx-auto">
-                <div class="card p-4 p-lg-5">
-                    <p class="lead">Driven, dependable, and results-oriented professional with a proven track record in customer service, team leadership, and technical support. Currently pursuing an Associate Degree in Cybersecurity at <strong>Houston Community College</strong>.</p>
-                    <hr class="my-4">
-                    <div class="row">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="about-card fade-up">
+                    <p class="about-lead">
+                        Driven, dependable, and results-oriented professional with a proven track record in customer service, team leadership, and technical support. Currently pursuing an Associate Degree in Cybersecurity at <strong>Houston Community College</strong>.
+                    </p>
+
+                    <div class="row g-3">
                         <div class="col-md-6">
-                            <p><i class="fas fa-graduation-cap text-primary me-2"></i> <strong>Class Rank:</strong> Sophomore/Junior</p>
-                            <p><i class="fas fa-building text-primary me-2"></i> <strong>Institution:</strong> Houston Community College</p>
-                            <p><i class="fas fa-users text-primary me-2"></i> <strong>Organizations:</strong> Cybersecurity Club, Student Technology Association</p>
-                            <p><i class="fas fa-trophy text-primary me-2"></i> <strong>Competitions:</strong> XP Cyber Challenges (6) | NETLAB Labs (25)</p>
+                            <div class="info-row">
+                                <div class="info-icon"><i class="fas fa-graduation-cap"></i></div>
+                                <div>
+                                    <div class="info-label">Class Rank</div>
+                                    <div class="info-value">Sophomore / Junior</div>
+                                </div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-icon"><i class="fas fa-building"></i></div>
+                                <div>
+                                    <div class="info-label">Institution</div>
+                                    <div class="info-value">Houston Community College</div>
+                                </div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-icon"><i class="fas fa-users"></i></div>
+                                <div>
+                                    <div class="info-label">Organizations</div>
+                                    <div class="info-value">Cybersecurity Club · Student Technology Association</div>
+                                </div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-icon"><i class="fas fa-trophy"></i></div>
+                                <div>
+                                    <div class="info-label">Competitions</div>
+                                    <div class="info-value">6 XP Cyber Challenges · 25 NETLAB Labs</div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-6">
-                            <p><i class="fas fa-briefcase text-primary me-2"></i> <strong>Experience:</strong> T-Mobile CSR | Walmart Team Lead</p>
-                            <p><i class="fas fa-bullseye text-primary me-2"></i> <strong>Career Goal:</strong> SOC Analyst | Cybersecurity Specialist</p>
-                            <p><i class="fas fa-language text-primary me-2"></i> <strong>Languages:</strong> English (Native/Fluent), Arabic (Native/Fluent)</p>
-                            <p><i class="fas fa-star text-primary me-2"></i> <strong>Role Model:</strong> Kevin Mitnick</p>
+                            <div class="info-row">
+                                <div class="info-icon"><i class="fas fa-briefcase"></i></div>
+                                <div>
+                                    <div class="info-label">Experience</div>
+                                    <div class="info-value">T-Mobile CSR · Walmart Team Lead</div>
+                                </div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-icon"><i class="fas fa-bullseye"></i></div>
+                                <div>
+                                    <div class="info-label">Career Goal</div>
+                                    <div class="info-value">SOC Analyst · Cybersecurity Specialist</div>
+                                </div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-icon"><i class="fas fa-language"></i></div>
+                                <div>
+                                    <div class="info-label">Languages</div>
+                                    <div class="info-value">English (Native) · Arabic (Native)</div>
+                                </div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-icon"><i class="fas fa-star"></i></div>
+                                <div>
+                                    <div class="info-label">Role Model</div>
+                                    <div class="info-value">Kevin Mitnick</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="mt-4 p-3 bg-light rounded">
-                        <i class="fas fa-quote-left text-primary me-2"></i>
-                        <em>"The biggest vulnerability in any system is the human element."</em>
-                        <footer class="mt-2 text-muted">— Kevin Mitnick</footer>
-                        <p class="mt-3 mb-0">Kevin Mitnick's journey from hacker to trusted security consultant taught me that understanding both offensive and defensive security is essential. My customer service background gives me a unique ability to communicate security concepts effectively.</p>
+
+                    <div class="quote-box mt-3">
+                        <blockquote>"The biggest vulnerability in any system is the human element."</blockquote>
+                        <cite>— Kevin Mitnick</cite>
+                        <p>Kevin Mitnick's journey from hacker to trusted security consultant taught me that understanding both offensive and defensive security is essential. My customer service background gives me a unique ability to communicate security concepts effectively to non-technical stakeholders.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Word Cloud -->
-    <section class="mb-5" data-aos="fade-up">
-        <div class="section-header">
-            <h2>My Cybersecurity World</h2>
-            <p class="subtitle">30 words that define my journey</p>
+<!-- ====================================================
+     WORD CLOUD
+===================================================== -->
+<section class="wordcloud-section">
+    <div class="container">
+        <div class="section-header fade-up text-center">
+            <span class="section-label">Vocabulary</span>
+            <h2 class="section-title">My Cybersecurity World</h2>
+            <p class="section-subtitle">30 words that define my journey</p>
         </div>
-        <div class="row">
-            <div class="col-lg-10 mx-auto">
-                <div class="wordcloud-container">
-                    <img src="images/wordcloud.jpg" alt="Cybersecurity Word Cloud" class="wordcloud-img">
-                    <p class="text-muted mt-3 mb-0"><i class="fas fa-cloud me-1"></i> Cybersecurity | Active Directory | GPO | Windows | Security | Defense | Incident Response | Malware | Forensics | Access Control | Password Security | Patch Management | Vulnerability | SOC Analyst | System Administrator | Troubleshooting | Networking | Linux | Python | Firewall | Encryption | Authentication | Risk Management | Threat Analysis | Endpoint Security | Zero Trust | Hardening | Compliance | Houston Community College | XP Cyber Challenges</p>
+        <div class="row justify-content-center">
+            <div class="col-lg-10 fade-up">
+                <div class="wordcloud-wrap">
+                    <img src="images/wordcloud.jpg" alt="Cybersecurity Word Cloud" class="wordcloud-img"
+                         onerror="this.style.display='none'">
+                    <div class="wordcloud-tags">
+                        <span class="wc-tag">Cybersecurity</span><span class="wc-tag">Active Directory</span>
+                        <span class="wc-tag">GPO</span><span class="wc-tag">Windows Server</span>
+                        <span class="wc-tag">Security</span><span class="wc-tag">Defense</span>
+                        <span class="wc-tag">Incident Response</span><span class="wc-tag">Malware</span>
+                        <span class="wc-tag">Forensics</span><span class="wc-tag">Access Control</span>
+                        <span class="wc-tag">Password Security</span><span class="wc-tag">Patch Management</span>
+                        <span class="wc-tag">Vulnerability</span><span class="wc-tag">SOC Analyst</span>
+                        <span class="wc-tag">Sysadmin</span><span class="wc-tag">Networking</span>
+                        <span class="wc-tag">Linux</span><span class="wc-tag">Python</span>
+                        <span class="wc-tag">Firewall</span><span class="wc-tag">Encryption</span>
+                        <span class="wc-tag">Authentication</span><span class="wc-tag">Risk Management</span>
+                        <span class="wc-tag">Threat Analysis</span><span class="wc-tag">Endpoint Security</span>
+                        <span class="wc-tag">Zero Trust</span><span class="wc-tag">Hardening</span>
+                        <span class="wc-tag">Compliance</span><span class="wc-tag">Wireshark</span>
+                        <span class="wc-tag">HCC</span><span class="wc-tag">XP Cyber</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="mb-5" data-aos="fade-up">
-        <div class="section-header">
-            <h2>Professional Experience</h2>
-            <p class="subtitle">Customer service and leadership background</p>
+<!-- ====================================================
+     EXPERIENCE
+===================================================== -->
+<section id="experience">
+    <div class="container">
+        <div class="section-header fade-up">
+            <span class="section-label">Career</span>
+            <h2 class="section-title">Professional Experience</h2>
+            <p class="section-subtitle">Customer service and leadership background</p>
         </div>
-        <div class="row">
-            <div class="col-lg-10 mx-auto">
-                <div class="exp-card">
-                    <div class="d-flex justify-content-between align-items-start flex-wrap">
-                        <h4 class="mb-1">Customer Service Representative</h4>
-                        <span class="badge bg-primary">2022 - 2023</span>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="exp-card fade-up">
+                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-2">
+                        <div class="exp-title">Customer Service Representative</div>
+                        <span class="badge-date">2022 – 2023</span>
                     </div>
-                    <p class="text-primary mb-2">T-Mobile | Houston, TX</p>
-                    <ul class="mb-0">
+                    <div class="exp-company"><i class="fas fa-building me-1"></i>T-Mobile &nbsp;·&nbsp; Houston, TX</div>
+                    <ul>
                         <li>Delivered high-quality support handling billing, technical, and account inquiries</li>
                         <li>Recognized for professionalism resolving escalated customer issues</li>
                         <li>Translated complex technical problems into easy-to-understand solutions</li>
                         <li>Achieved top-tier scores in customer satisfaction and first-call resolution</li>
                     </ul>
                 </div>
-                <div class="exp-card">
-                    <div class="d-flex justify-content-between align-items-start flex-wrap">
-                        <h4 class="mb-1">Team Lead - Customer Experience & Operations</h4>
-                        <span class="badge bg-primary">2020 - 2022</span>
+                <div class="exp-card fade-up">
+                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-2">
+                        <div class="exp-title">Team Lead – Customer Experience & Operations</div>
+                        <span class="badge-date">2020 – 2022</span>
                     </div>
-                    <p class="text-primary mb-2">Walmart | Houston, TX</p>
-                    <ul class="mb-0">
+                    <div class="exp-company"><i class="fas fa-building me-1"></i>Walmart &nbsp;·&nbsp; Houston, TX</div>
+                    <ul>
                         <li>Led a team of 10+ associates delivering superior customer service</li>
                         <li>Resolved high-level customer concerns, improving satisfaction metrics</li>
                         <li>Coordinated shift operations and maintained inventory accuracy</li>
-                        <li>Mentored new hires with hands-on training</li>
+                        <li>Mentored new hires with hands-on training programs</li>
                     </ul>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Education Section -->
-    <section id="education" class="mb-5" data-aos="fade-up">
-        <div class="section-header">
-            <h2>Education & Coursework</h2>
-            <p class="subtitle">Academic background and relevant courses</p>
+<!-- ====================================================
+     EDUCATION
+===================================================== -->
+<section id="education" class="edu-section">
+    <div class="container">
+        <div class="section-header fade-up">
+            <span class="section-label">Academic</span>
+            <h2 class="section-title">Education & Coursework</h2>
+            <p class="section-subtitle">Academic background and relevant courses</p>
         </div>
-        <div class="row">
-            <div class="col-lg-10 mx-auto">
-                <div class="card p-4 p-lg-5">
-                    <h4 class="text-primary">Associate Degree in Cybersecurity</h4>
-                    <p><strong>Houston Community College</strong> | Expected Graduation: 2026</p>
-                    <div class="row mt-3">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="edu-card fade-up">
+                    <div class="d-flex align-items-center gap-3 flex-wrap mb-1">
+                        <div class="edu-degree">Associate Degree in Cybersecurity</div>
+                        <span class="badge-date">Expected 2026</span>
+                    </div>
+                    <p class="mb-3" style="color:var(--text-muted);font-size:0.9rem;">
+                        <i class="fas fa-university me-1"></i> Houston Community College
+                    </p>
+                    <div class="row g-3 mb-3">
                         <div class="col-md-6">
-                            <h6><i class="fas fa-check-circle text-primary me-1"></i> Core Courses:</h6>
-                            <ul>
+                            <p class="fw-600 mb-2" style="font-family:Syne,sans-serif;font-size:0.9rem;color:var(--text);">Core Courses</p>
+                            <ul class="course-list">
                                 <li>Cybersecurity Challenge (XP Cyber Challenges)</li>
                                 <li>Networking Fundamentals (TCP/IP, DNS, DHCP)</li>
                                 <li>Ethical Hacking & Penetration Testing</li>
                             </ul>
                         </div>
                         <div class="col-md-6">
-                            <h6><i class="fas fa-check-circle text-primary me-1"></i> Advanced Courses:</h6>
-                            <ul>
+                            <p class="fw-600 mb-2" style="font-family:Syne,sans-serif;font-size:0.9rem;color:var(--text);">Advanced Courses</p>
+                            <ul class="course-list">
                                 <li>Digital Forensics & Incident Response</li>
                                 <li>System Security & Hardening</li>
                                 <li>Linux & Windows Server Administration</li>
                             </ul>
                         </div>
                     </div>
-                    <div class="alert alert-primary mt-3">
-                        <i class="fas fa-link me-2"></i>
+                    <div class="edu-alert">
+                        <i class="fas fa-lightbulb text-primary me-2"></i>
                         <strong>How coursework prepared me:</strong> HCC provided real-world simulations through XP Cyber Challenges and 25 NETLAB labs. I gained hands-on experience with Active Directory, GPO configuration, malware analysis, incident response, and network security — directly applicable to SOC and system administration roles.
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Skills Section - WITH IMAGES -->
-    <section id="skills" class="mb-5" data-aos="fade-up">
-        <div class="section-header">
-            <h2>Technical & Professional Skills</h2>
-            <p class="subtitle">Tools, domains, and competencies</p>
+<!-- ====================================================
+     SKILLS
+===================================================== -->
+<section id="skills">
+    <div class="container">
+        <div class="section-header fade-up">
+            <span class="section-label">Competencies</span>
+            <h2 class="section-title">Technical & Professional Skills</h2>
+            <p class="section-subtitle">Tools, domains, and core competencies</p>
         </div>
-        <div class="row g-4">
-            <!-- Technical Skills Card with Image -->
-            <div class="col-md-4">
+        <div class="row g-4 stagger">
+            <div class="col-sm-6 col-lg-4 fade-up" style="--i:0">
                 <div class="card h-100">
-                    <img src="images/technical.jpg" alt="Technical Skills" class="skill-card-img" onerror="this.src='https://placehold.co/600x400/0d6efd/white?text=Technical+Skills'">
-                    <div class="p-4">
-                        <h4 class="text-primary mb-3"><i class="fas fa-desktop me-2"></i>Technical</h4>
+                    <img src="images/technical.jpg" alt="Technical Skills" class="skill-card-img"
+                         onerror="this.src='https://placehold.co/600x300/0d6efd/white?text=Technical'">
+                    <div class="skill-card-body">
+                        <div class="skill-card-title">
+                            <i class="fas fa-desktop"></i> Technical
+                        </div>
                         <div>
-                            <span class="skill-badge">Windows Server</span>
-                            <span class="skill-badge">Linux (Ubuntu/Kali)</span>
-                            <span class="skill-badge">Active Directory</span>
-                            <span class="skill-badge">Group Policy (GPO)</span>
-                            <span class="skill-badge">TCP/IP, DNS, DHCP</span>
-                            <span class="skill-badge">Firewalls</span>
-                            <span class="skill-badge">Wireshark</span>
-                            <span class="skill-badge">VirtualBox</span>
+                            <span class="badge-skill">Windows Server</span>
+                            <span class="badge-skill">Linux (Ubuntu/Kali)</span>
+                            <span class="badge-skill">Active Directory</span>
+                            <span class="badge-skill">Group Policy (GPO)</span>
+                            <span class="badge-skill">TCP/IP · DNS · DHCP</span>
+                            <span class="badge-skill">Firewalls</span>
+                            <span class="badge-skill">Wireshark</span>
+                            <span class="badge-skill">VirtualBox</span>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Security Skills Card with Image -->
-            <div class="col-md-4">
+            <div class="col-sm-6 col-lg-4 fade-up" style="--i:1">
                 <div class="card h-100">
-                    <img src="images/security.jpg" alt="Security Skills" class="skill-card-img" onerror="this.src='https://placehold.co/600x400/0d6efd/white?text=Security+Skills'">
-                    <div class="p-4">
-                        <h4 class="text-primary mb-3"><i class="fas fa-shield-alt me-2"></i>Security</h4>
+                    <img src="images/security.jpg" alt="Security Skills" class="skill-card-img"
+                         onerror="this.src='https://placehold.co/600x300/0f4dbf/white?text=Security'">
+                    <div class="skill-card-body">
+                        <div class="skill-card-title">
+                            <i class="fas fa-shield-alt"></i> Security
+                        </div>
                         <div>
-                            <span class="skill-badge">System Hardening</span>
-                            <span class="skill-badge">Access Control</span>
-                            <span class="skill-badge">Digital Forensics</span>
-                            <span class="skill-badge">Incident Response</span>
-                            <span class="skill-badge">Vulnerability Analysis</span>
-                            <span class="skill-badge">Patch Management</span>
-                            <span class="skill-badge">Password Security</span>
+                            <span class="badge-skill">System Hardening</span>
+                            <span class="badge-skill">Access Control</span>
+                            <span class="badge-skill">Digital Forensics</span>
+                            <span class="badge-skill">Incident Response</span>
+                            <span class="badge-skill">Vulnerability Analysis</span>
+                            <span class="badge-skill">Patch Management</span>
+                            <span class="badge-skill">Password Security</span>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Professional Skills Card with Image -->
-            <div class="col-md-4">
+            <div class="col-sm-6 col-lg-4 fade-up" style="--i:2">
                 <div class="card h-100">
-                    <img src="images/professional.jpg" alt="Professional Skills" class="skill-card-img" onerror="this.src='https://placehold.co/600x400/0d6efd/white?text=Professional+Skills'">
-                    <div class="p-4">
-                        <h4 class="text-primary mb-3"><i class="fas fa-users me-2"></i>Professional</h4>
+                    <img src="images/professional.jpg" alt="Professional Skills" class="skill-card-img"
+                         onerror="this.src='https://placehold.co/600x300/1e40af/white?text=Professional'">
+                    <div class="skill-card-body">
+                        <div class="skill-card-title">
+                            <i class="fas fa-users"></i> Professional
+                        </div>
                         <div>
-                            <span class="skill-badge">Customer Satisfaction</span>
-                            <span class="skill-badge">Conflict Resolution</span>
-                            <span class="skill-badge">Team Leadership</span>
-                            <span class="skill-badge">Technical Support</span>
-                            <span class="skill-badge">Bilingual (EN/AR)</span>
-                            <span class="skill-badge">Documentation</span>
-                            <span class="skill-badge">Problem Solving</span>
+                            <span class="badge-skill">Customer Satisfaction</span>
+                            <span class="badge-skill">Conflict Resolution</span>
+                            <span class="badge-skill">Team Leadership</span>
+                            <span class="badge-skill">Technical Support</span>
+                            <span class="badge-skill">Bilingual (EN/AR)</span>
+                            <span class="badge-skill">Documentation</span>
+                            <span class="badge-skill">Problem Solving</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- XP Cyber Challenges -->
-    <section id="projects" class="mb-5" data-aos="fade-up">
-        <div class="section-header">
-            <h2>XP Cyber Challenges</h2>
-            <p class="subtitle">Hands-on cybersecurity simulations</p>
+<!-- ====================================================
+     XP CHALLENGES
+===================================================== -->
+<section id="projects" style="background:#f8faff;">
+    <div class="container">
+        <div class="section-header fade-up">
+            <span class="section-label">Simulations</span>
+            <h2 class="section-title">XP Cyber Challenges</h2>
+            <p class="section-subtitle">Hands-on cybersecurity simulations</p>
         </div>
         <div class="row g-4">
-            <div class="col-md-6 col-lg-4">
-                <div class="card p-3 h-100">
-                    <h5>🖥️ Helpdesk Fun</h5>
-                    <p class="small text-muted">User Workstation Nightmares</p>
-                    <p class="small">Resolved workstation issues, network share mapping, end-user troubleshooting.</p>
-                    <button class="btn-outline-custom mt-auto align-self-start" data-bs-toggle="modal" data-bs-target="#screenshotModal" data-img="images/project1.jpg"><i class="fas fa-image me-1"></i> Screenshot</button>
+            <div class="col-sm-6 col-lg-4 fade-up">
+                <div class="challenge-card">
+                    <span class="challenge-emoji">🖥️</span>
+                    <div class="challenge-title">Helpdesk Fun</div>
+                    <div class="challenge-sub">User Workstation Nightmares</div>
+                    <div class="challenge-desc">Resolved workstation issues, network share mapping, and end-user troubleshooting in a real-world helpdesk scenario.</div>
+                    <button class="btn-sm-outline" data-bs-toggle="modal" data-bs-target="#screenshotModal" data-img="images/project1.jpg">
+                        <i class="fas fa-image"></i> Screenshot
+                    </button>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card p-3 h-100">
-                    <h5>🏢 Domain Controller</h5>
-                    <p class="small text-muted">Interns & HR Access Control</p>
-                    <p class="small">Implemented least privilege, Active Directory security groups, logon restrictions.</p>
-                    <button class="btn-outline-custom mt-auto align-self-start" data-bs-toggle="modal" data-bs-target="#screenshotModal" data-img="images/project2.jpg"><i class="fas fa-image me-1"></i> Screenshot</button>
+            <div class="col-sm-6 col-lg-4 fade-up">
+                <div class="challenge-card">
+                    <span class="challenge-emoji">🏢</span>
+                    <div class="challenge-title">Domain Controller</div>
+                    <div class="challenge-sub">Interns & HR Access Control</div>
+                    <div class="challenge-desc">Implemented least privilege, Active Directory security groups, and logon time restrictions for departmental users.</div>
+                    <button class="btn-sm-outline" data-bs-toggle="modal" data-bs-target="#screenshotModal" data-img="images/project2.jpg">
+                        <i class="fas fa-image"></i> Screenshot
+                    </button>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card p-3 h-100">
-                    <h5>🔄 Patch Management</h5>
-                    <p class="small text-muted">Security Begins with Updates</p>
-                    <p class="small">Disabled guest admin, updated vulnerable software, vulnerability remediation.</p>
-                    <button class="btn-outline-custom mt-auto align-self-start" data-bs-toggle="modal" data-bs-target="#screenshotModal" data-img="images/project3.jpg"><i class="fas fa-image me-1"></i> Screenshot</button>
+            <div class="col-sm-6 col-lg-4 fade-up">
+                <div class="challenge-card">
+                    <span class="challenge-emoji">🔄</span>
+                    <div class="challenge-title">Patch Management</div>
+                    <div class="challenge-sub">Security Begins with Updates</div>
+                    <div class="challenge-desc">Disabled guest admin accounts, updated vulnerable software packages, and performed full vulnerability remediation.</div>
+                    <button class="btn-sm-outline" data-bs-toggle="modal" data-bs-target="#screenshotModal" data-img="images/project3.jpg">
+                        <i class="fas fa-image"></i> Screenshot
+                    </button>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card p-3 h-100">
-                    <h5>🔐 GPO Security</h5>
-                    <p class="small text-muted">Secure Domain Accounts</p>
-                    <p class="small">Created account lockout policies, password complexity, encryption standards.</p>
-                    <button class="btn-outline-custom mt-auto align-self-start" data-bs-toggle="modal" data-bs-target="#screenshotModal" data-img="images/project4.jpg"><i class="fas fa-image me-1"></i> Screenshot</button>
+            <div class="col-sm-6 col-lg-4 fade-up">
+                <div class="challenge-card">
+                    <span class="challenge-emoji">🔐</span>
+                    <div class="challenge-title">GPO Security</div>
+                    <div class="challenge-sub">Secure Domain Accounts</div>
+                    <div class="challenge-desc">Created account lockout policies, enforced password complexity requirements, and configured encryption standards via GPO.</div>
+                    <button class="btn-sm-outline" data-bs-toggle="modal" data-bs-target="#screenshotModal" data-img="images/project4.jpg">
+                        <i class="fas fa-image"></i> Screenshot
+                    </button>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card p-3 h-100">
-                    <h5>🛡️ Incident Response</h5>
-                    <p class="small text-muted">Preventative Protection</p>
-                    <p class="small">Real-time incident handling, threat analysis, proactive defense deployment.</p>
-                    <button class="btn-outline-custom mt-auto align-self-start" data-bs-toggle="modal" data-bs-target="#screenshotModal" data-img="images/project5.jpg"><i class="fas fa-image me-1"></i> Screenshot</button>
+            <div class="col-sm-6 col-lg-4 fade-up">
+                <div class="challenge-card">
+                    <span class="challenge-emoji">🛡️</span>
+                    <div class="challenge-title">Incident Response</div>
+                    <div class="challenge-sub">Preventative Protection</div>
+                    <div class="challenge-desc">Real-time incident handling, threat analysis, and proactive defense deployment against simulated attacks.</div>
+                    <button class="btn-sm-outline" data-bs-toggle="modal" data-bs-target="#screenshotModal" data-img="images/project5.jpg">
+                        <i class="fas fa-image"></i> Screenshot
+                    </button>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card p-3 h-100">
-                    <h5>⚠️ Digital Forensics</h5>
-                    <p class="small text-muted">Dangerous Drives</p>
-                    <p class="small">Malware scanning, evidence preservation, removable media security.</p>
-                    <button class="btn-outline-custom mt-auto align-self-start" data-bs-toggle="modal" data-bs-target="#screenshotModal" data-img="images/project6.jpg"><i class="fas fa-image me-1"></i> Screenshot</button>
+            <div class="col-sm-6 col-lg-4 fade-up">
+                <div class="challenge-card">
+                    <span class="challenge-emoji">⚠️</span>
+                    <div class="challenge-title">Digital Forensics</div>
+                    <div class="challenge-sub">Dangerous Drives</div>
+                    <div class="challenge-desc">Malware scanning, evidence preservation, and removable media security hardening on compromised systems.</div>
+                    <button class="btn-sm-outline" data-bs-toggle="modal" data-bs-target="#screenshotModal" data-img="images/project6.jpg">
+                        <i class="fas fa-image"></i> Screenshot
+                    </button>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- NETLAB Labs Section -->
-    <section id="labs" class="mb-5" data-aos="fade-up">
-        <div class="section-header">
-            <h2>NDG NETLAB Labs</h2>
-            <p class="subtitle">25 guided technical practices completed</p>
+<!-- ====================================================
+     NETLAB LABS
+===================================================== -->
+<section id="labs" class="labs-section">
+    <div class="container">
+        <div class="section-header fade-up">
+            <span class="section-label">Practice</span>
+            <h2 class="section-title">NDG NETLAB Labs</h2>
+            <p class="section-subtitle">25 guided technical practices completed</p>
         </div>
         <div class="row g-4">
-            <div class="col-md-6 col-lg-4">
-                <div class="card p-3 h-100">
-                    <h5><i class="fas fa-flask text-primary me-2"></i>NETLAB Set 1</h5>
-                    <p class="text-success mb-2"><i class="fas fa-check-circle"></i> Labs 1-5 Completed</p>
-                    <div><span class="lab-badge">Lab 1</span><span class="lab-badge">Lab 2</span><span class="lab-badge">Lab 3</span><span class="lab-badge">Lab 4</span><span class="lab-badge">Lab 5</span></div>
-                    <p class="small text-muted mt-2 mb-0">Basic networking & OS fundamentals</p>
-                    <button class="btn-outline-custom mt-3" data-bs-toggle="modal" data-bs-target="#screenshotModal" data-img="images/netlab1.jpg"><i class="fas fa-image me-1"></i> View Completion</button>
+            <div class="col-sm-6 col-lg-4 fade-up">
+                <div class="lab-card">
+                    <div class="lab-title"><i class="fas fa-flask text-primary me-2"></i>NETLAB Set 1</div>
+                    <div class="lab-status"><i class="fas fa-check-circle"></i> Labs 1–5 Completed</div>
+                    <div class="lab-badges">
+                        <span class="lab-badge">Lab 1</span><span class="lab-badge">Lab 2</span>
+                        <span class="lab-badge">Lab 3</span><span class="lab-badge">Lab 4</span>
+                        <span class="lab-badge">Lab 5</span>
+                    </div>
+                    <div class="lab-desc">Basic networking & OS fundamentals</div>
+                    <button class="btn-sm-outline mt-auto" data-bs-toggle="modal" data-bs-target="#screenshotModal" data-img="images/netlab1.jpg">
+                        <i class="fas fa-image"></i> View Completion
+                    </button>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card p-3 h-100">
-                    <h5><i class="fas fa-flask text-primary me-2"></i>NETLAB Set 2</h5>
-                    <p class="text-success mb-2"><i class="fas fa-check-circle"></i> Labs 6-10 Completed</p>
-                    <div><span class="lab-badge">Lab 6</span><span class="lab-badge">Lab 7</span><span class="lab-badge">Lab 8</span><span class="lab-badge">Lab 9</span><span class="lab-badge">Lab 10</span></div>
-                    <p class="small text-muted mt-2 mb-0">Network configuration & troubleshooting</p>
-                    <button class="btn-outline-custom mt-3" data-bs-toggle="modal" data-bs-target="#screenshotModal" data-img="images/netlab2.jpg"><i class="fas fa-image me-1"></i> View Completion</button>
+            <div class="col-sm-6 col-lg-4 fade-up">
+                <div class="lab-card">
+                    <div class="lab-title"><i class="fas fa-flask text-primary me-2"></i>NETLAB Set 2</div>
+                    <div class="lab-status"><i class="fas fa-check-circle"></i> Labs 6–10 Completed</div>
+                    <div class="lab-badges">
+                        <span class="lab-badge">Lab 6</span><span class="lab-badge">Lab 7</span>
+                        <span class="lab-badge">Lab 8</span><span class="lab-badge">Lab 9</span>
+                        <span class="lab-badge">Lab 10</span>
+                    </div>
+                    <div class="lab-desc">Network configuration & troubleshooting</div>
+                    <button class="btn-sm-outline mt-auto" data-bs-toggle="modal" data-bs-target="#screenshotModal" data-img="images/netlab2.jpg">
+                        <i class="fas fa-image"></i> View Completion
+                    </button>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card p-3 h-100">
-                    <h5><i class="fas fa-flask text-primary me-2"></i>NETLAB Set 3</h5>
-                    <p class="text-success mb-2"><i class="fas fa-check-circle"></i> Labs 11-15 Completed</p>
-                    <div><span class="lab-badge">Lab 11</span><span class="lab-badge">Lab 12</span><span class="lab-badge">Lab 13</span><span class="lab-badge">Lab 14</span><span class="lab-badge">Lab 15</span></div>
-                    <p class="small text-muted mt-2 mb-0">Intermediate server administration</p>
-                    <button class="btn-outline-custom mt-3" data-bs-toggle="modal" data-bs-target="#screenshotModal" data-img="images/netlab3.jpg"><i class="fas fa-image me-1"></i> View Completion</button>
+            <div class="col-sm-6 col-lg-4 fade-up">
+                <div class="lab-card">
+                    <div class="lab-title"><i class="fas fa-flask text-primary me-2"></i>NETLAB Set 3</div>
+                    <div class="lab-status"><i class="fas fa-check-circle"></i> Labs 11–15 Completed</div>
+                    <div class="lab-badges">
+                        <span class="lab-badge">Lab 11</span><span class="lab-badge">Lab 12</span>
+                        <span class="lab-badge">Lab 13</span><span class="lab-badge">Lab 14</span>
+                        <span class="lab-badge">Lab 15</span>
+                    </div>
+                    <div class="lab-desc">Intermediate server administration</div>
+                    <button class="btn-sm-outline mt-auto" data-bs-toggle="modal" data-bs-target="#screenshotModal" data-img="images/netlab3.jpg">
+                        <i class="fas fa-image"></i> View Completion
+                    </button>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card p-3 h-100">
-                    <h5><i class="fas fa-flask text-primary me-2"></i>NETLAB Set 4</h5>
-                    <p class="text-success mb-2"><i class="fas fa-check-circle"></i> Labs 16-20 Completed</p>
-                    <div><span class="lab-badge">Lab 16</span><span class="lab-badge">Lab 17</span><span class="lab-badge">Lab 18</span><span class="lab-badge">Lab 19</span><span class="lab-badge">Lab 20</span></div>
-                    <p class="small text-muted mt-2 mb-0">Access control & security policies</p>
-                    <button class="btn-outline-custom mt-3" data-bs-toggle="modal" data-bs-target="#screenshotModal" data-img="images/netlab4.jpg"><i class="fas fa-image me-1"></i> View Completion</button>
+            <div class="col-sm-6 col-lg-4 fade-up">
+                <div class="lab-card">
+                    <div class="lab-title"><i class="fas fa-flask text-primary me-2"></i>NETLAB Set 4</div>
+                    <div class="lab-status"><i class="fas fa-check-circle"></i> Labs 16–20 Completed</div>
+                    <div class="lab-badges">
+                        <span class="lab-badge">Lab 16</span><span class="lab-badge">Lab 17</span>
+                        <span class="lab-badge">Lab 18</span><span class="lab-badge">Lab 19</span>
+                        <span class="lab-badge">Lab 20</span>
+                    </div>
+                    <div class="lab-desc">Access control & security policies</div>
+                    <button class="btn-sm-outline mt-auto" data-bs-toggle="modal" data-bs-target="#screenshotModal" data-img="images/netlab4.jpg">
+                        <i class="fas fa-image"></i> View Completion
+                    </button>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card p-3 h-100">
-                    <h5><i class="fas fa-flask text-primary me-2"></i>NETLAB Set 5</h5>
-                    <p class="text-success mb-2"><i class="fas fa-check-circle"></i> Labs 21-25 Completed</p>
-                    <div><span class="lab-badge">Lab 21</span><span class="lab-badge">Lab 22</span><span class="lab-badge">Lab 23</span><span class="lab-badge">Lab 24</span><span class="lab-badge">Lab 25</span></div>
-                    <p class="small text-muted mt-2 mb-0">System hardening & advanced security</p>
-                    <button class="btn-outline-custom mt-3" data-bs-toggle="modal" data-bs-target="#screenshotModal" data-img="images/netlab5.jpg"><i class="fas fa-image me-1"></i> View Completion</button>
+            <div class="col-sm-6 col-lg-4 fade-up">
+                <div class="lab-card">
+                    <div class="lab-title"><i class="fas fa-flask text-primary me-2"></i>NETLAB Set 5</div>
+                    <div class="lab-status"><i class="fas fa-check-circle"></i> Labs 21–25 Completed</div>
+                    <div class="lab-badges">
+                        <span class="lab-badge">Lab 21</span><span class="lab-badge">Lab 22</span>
+                        <span class="lab-badge">Lab 23</span><span class="lab-badge">Lab 24</span>
+                        <span class="lab-badge">Lab 25</span>
+                    </div>
+                    <div class="lab-desc">System hardening & advanced security</div>
+                    <button class="btn-sm-outline mt-auto" data-bs-toggle="modal" data-bs-target="#screenshotModal" data-img="images/netlab5.jpg">
+                        <i class="fas fa-image"></i> View Completion
+                    </button>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card p-3 bg-primary text-white h-100">
-                    <h5><i class="fas fa-trophy me-2"></i>Total Achievement</h5>
-                    <p class="display-4 fw-bold mb-0">25/25</p>
-                    <p class="mb-0">Labs Completed with 100% Success</p>
+            <div class="col-sm-6 col-lg-4 fade-up">
+                <div class="lab-achievement">
+                    <i class="fas fa-trophy fa-2x text-warning mb-2" style="position:relative;"></i>
+                    <div class="lab-achievement-num">25/25</div>
+                    <p style="color:#94a3b8;font-size:0.9rem;margin-top:0.5rem;margin-bottom:0;position:relative;">Labs Completed · 100% Success</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Reflections -->
-    <section id="reflections" class="mb-5" data-aos="fade-up">
-        <div class="section-header">
-            <h2>Reflections & Lessons Learned</h2>
-            <p class="subtitle">Growth, challenges, and future goals</p>
+<!-- ====================================================
+     REFLECTIONS
+===================================================== -->
+<section id="reflections">
+    <div class="container">
+        <div class="section-header fade-up">
+            <span class="section-label">Growth</span>
+            <h2 class="section-title">Reflections & Lessons Learned</h2>
+            <p class="section-subtitle">Challenges faced, skills gained, and goals ahead</p>
         </div>
-        <div class="row">
-            <div class="col-lg-10 mx-auto">
-                <div class="card p-4">
-                    <div class="timeline-item">
-                        <h5><i class="fas fa-graduation-cap text-primary me-2"></i>Skills Gained</h5>
-                        <p class="mb-0">Through XP Cyber Challenges and 25 NETLAB labs, I mastered Active Directory, GPO configuration, malware analysis, incident response, and network security. My customer service background enhances my ability to communicate security concepts clearly.</p>
+        <div class="row justify-content-center">
+            <div class="col-lg-10 fade-up">
+                <div class="reflect-card">
+                    <div class="reflect-item">
+                        <div class="reflect-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div>
+                            <div class="reflect-title">Skills Gained</div>
+                            <p class="reflect-body">Through XP Cyber Challenges and 25 NETLAB labs, I mastered Active Directory, GPO configuration, malware analysis, incident response, and network security. My customer service background enhances my ability to communicate security concepts clearly to diverse stakeholders.</p>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <h5><i class="fas fa-exclamation-triangle text-primary me-2"></i>Challenges Overcome</h5>
-                        <p class="mb-0">Understanding GPO propagation timing was challenging. I learned systematic verification and proper testing procedures — skills reinforced by my team leadership experience at Walmart.</p>
+                    <div class="reflect-item">
+                        <div class="reflect-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <div>
+                            <div class="reflect-title">Challenges Overcome</div>
+                            <p class="reflect-body">Understanding GPO propagation timing was challenging. I learned systematic verification and proper testing procedures — skills reinforced by my team leadership experience at Walmart.</p>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <h5><i class="fas fa-brain text-primary me-2"></i>Growth in Understanding</h5>
-                        <p class="mb-0">I've learned cybersecurity is more than hacking — defense, access control, patch management, and proper configuration are equally critical. Security is a continuous process, not a one-time setup.</p>
+                    <div class="reflect-item">
+                        <div class="reflect-icon"><i class="fas fa-brain"></i></div>
+                        <div>
+                            <div class="reflect-title">Growth in Understanding</div>
+                            <p class="reflect-body">I've learned cybersecurity is more than hacking — defense, access control, patch management, and proper configuration are equally critical. Security is a continuous process, not a one-time setup.</p>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <h5><i class="fas fa-chart-line text-primary me-2"></i>Areas for Improvement</h5>
-                        <p class="mb-0">Continuing to improve Linux command-line skills, Wireshark analysis, Python scripting, and will earn CompTIA Security+ by Summer 2026.</p>
+                    <div class="reflect-item">
+                        <div class="reflect-icon"><i class="fas fa-chart-line"></i></div>
+                        <div>
+                            <div class="reflect-title">Areas for Improvement</div>
+                            <p class="reflect-body">Continuing to improve Linux command-line proficiency, Wireshark analysis, and Python scripting. Plan to earn <strong>CompTIA Security+</strong> by Summer 2026.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Supporting Documents -->
-    <section id="documents" class="mb-5" data-aos="fade-up">
-        <div class="section-header">
-            <h2>Supporting Documents</h2>
-            <p class="subtitle">Click each button to view available documents</p>
+<!-- ====================================================
+     DOCUMENTS
+===================================================== -->
+<section id="documents" style="background:#f8faff;">
+    <div class="container">
+        <div class="section-header fade-up">
+            <span class="section-label">Resources</span>
+            <h2 class="section-title">Supporting Documents</h2>
+            <p class="section-subtitle">Click each button to view available documents</p>
         </div>
         <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card p-4 text-center h-100">
-                    <div class="doc-icon"><i class="fas fa-file-alt fa-3x text-primary"></i></div>
-                    <h5 class="mb-3">Résumé</h5>
-                    <button class="btn-doc-toggle" onclick="toggleDocument('resume-list')"><i class="fas fa-chevron-down me-2"></i> View Documents</button>
-                    <div id="resume-list" class="doc-list text-start mt-3">
-                        <div class="doc-item"><span><i class="fas fa-file-pdf text-danger me-2"></i>Mustafa Dryosh - Résumé</span><a href="documents/resume.pdf" target="_blank" class="btn-sm btn-outline-primary">Open</a></div>
+            <!-- Résumé -->
+            <div class="col-md-4 fade-up">
+                <div class="doc-card">
+                    <div class="doc-icon-wrap"><i class="fas fa-file-alt"></i></div>
+                    <div class="doc-title">Résumé</div>
+                    <button class="btn-doc-toggle" onclick="toggleDoc('resume-list', this)">
+                        <i class="fas fa-chevron-down me-1"></i> View Document
+                    </button>
+                    <div id="resume-list" class="doc-list text-start">
+                        <div class="doc-item">
+                            <div class="doc-item-name">
+                                <i class="fas fa-file-pdf text-danger me-1"></i>
+                                <span>Mustafa Dryosh – Résumé</span>
+                            </div>
+                            <a href="documents/resume.pdf" target="_blank" class="btn-doc-open">Open</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card p-4 text-center h-100">
-                    <div class="doc-icon"><i class="fas fa-file-pdf fa-3x text-primary"></i></div>
-                    <h5 class="mb-3">XP Challenge Reports</h5>
-                    <button class="btn-doc-toggle" onclick="toggleDocument('xp-list')"><i class="fas fa-chevron-down me-2"></i> View Documents (6)</button>
-                    <div id="xp-list" class="doc-list text-start mt-3">
-                        <div class="doc-item"><span><i class="fas fa-file-pdf text-danger me-2"></i>Challenge 115 - Helpdesk Fun</span><a href="documents/xp-challenge-115.pdf" target="_blank" class="btn-sm btn-outline-primary">Open</a></div>
-                        <div class="doc-item"><span><i class="fas fa-file-pdf text-danger me-2"></i>Challenge 129 - Domain Controller</span><a href="documents/xp-challenge-129.pdf" target="_blank" class="btn-sm btn-outline-primary">Open</a></div>
-                        <div class="doc-item"><span><i class="fas fa-file-pdf text-danger me-2"></i>Challenge 136 - Security Updates</span><a href="documents/xp-challenge-136.pdf" target="_blank" class="btn-sm btn-outline-primary">Open</a></div>
-                        <div class="doc-item"><span><i class="fas fa-file-pdf text-danger me-2"></i>Challenge 130 - Secure Accounts</span><a href="documents/xp-challenge-130.pdf" target="_blank" class="btn-sm btn-outline-primary">Open</a></div>
-                        <div class="doc-item"><span><i class="fas fa-file-pdf text-danger me-2"></i>Challenge 166 - Preventative Protection</span><a href="documents/xp-challenge-166.pdf" target="_blank" class="btn-sm btn-outline-primary">Open</a></div>
-                        <div class="doc-item"><span><i class="fas fa-file-pdf text-danger me-2"></i>Challenge 116 - Dangerous Drives</span><a href="documents/xp-challenge-116.pdf" target="_blank" class="btn-sm btn-outline-primary">Open</a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card p-4 text-center h-100">
-                    <div class="doc-icon"><i class="fas fa-flask fa-3x text-primary"></i></div>
-                    <h5 class="mb-3">NETLAB Labs Reports</h5>
-                    <button class="btn-doc-toggle" onclick="toggleDocument('netlab-list')"><i class="fas fa-chevron-down me-2"></i> View Documents (6)</button>
-                    <div id="netlab-list" class="doc-list text-start mt-3">
-                        <div class="doc-item"><span><i class="fas fa-file-pdf text-danger me-2"></i>Labs 1-5 Completion Report</span><a href="documents/netlab-labs-1-5.pdf" target="_blank" class="btn-sm btn-outline-primary">Open</a></div>
-                        <div class="doc-item"><span><i class="fas fa-file-pdf text-danger me-2"></i>Labs 6-10 Completion Report</span><a href="documents/netlab-labs-6-10.pdf" target="_blank" class="btn-sm btn-outline-primary">Open</a></div>
-                        <div class="doc-item"><span><i class="fas fa-file-pdf text-danger me-2"></i>Labs 11-15 Completion Report</span><a href="documents/netlab-labs-11-15.pdf" target="_blank" class="btn-sm btn-outline-primary">Open</a></div>
-                        <div class="doc-item"><span><i class="fas fa-file-pdf text-danger me-2"></i>Labs 16-20 Completion Report</span><a href="documents/netlab-labs-16-20.pdf" target="_blank" class="btn-sm btn-outline-primary">Open</a></div>
-                        <div class="doc-item"><span><i class="fas fa-file-pdf text-danger me-2"></i>Labs 21-25 Completion Report</span><a href="documents/netlab-labs-21-25.pdf" target="_blank" class="btn-sm btn-outline-primary">Open</a></div>
-                        <div class="doc-item bg-light"><span><i class="fas fa-file-archive text-warning me-2"></i>All Labs Combined (ZIP)</span><a href="documents/netlab-labs-all.zip" target="_blank" class="btn-sm btn-outline-success">Download ZIP <i class="fas fa-download ms-1"></i></a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="mb-5" data-aos="fade-up">
-        <div class="section-header">
-            <h2>Get In Touch</h2>
-            <p class="subtitle">Let's connect and collaborate</p>
+            <!-- XP Challenges -->
+            <div class="col-md-4 fade-up">
+                <div class="doc-card">
+                    <div class="doc-icon-wrap"><i class="fas fa-file-pdf"></i></div>
+                    <div class="doc-title">XP Challenge Reports</div>
+                    <button class="btn-doc-toggle" onclick="toggleDoc('xp-list', this)">
+                        <i class="fas fa-chevron-down me-1"></i> View Documents (6)
+                    </button>
+                    <div id="xp-list" class="doc-list text-start">
+                        <div class="doc-item">
+                            <div class="doc-item-name"><i class="fas fa-file-pdf text-danger me-1"></i><span>Challenge 115 – Helpdesk Fun</span></div>
+                            <a href="documents/xp-challenge-115.pdf" target="_blank" class="btn-doc-open">Open</a>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-item-name"><i class="fas fa-file-pdf text-danger me-1"></i><span>Challenge 129 – Domain Controller</span></div>
+                            <a href="documents/xp-challenge-129.pdf" target="_blank" class="btn-doc-open">Open</a>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-item-name"><i class="fas fa-file-pdf text-danger me-1"></i><span>Challenge 136 – Security Updates</span></div>
+                            <a href="documents/xp-challenge-136.pdf" target="_blank" class="btn-doc-open">Open</a>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-item-name"><i class="fas fa-file-pdf text-danger me-1"></i><span>Challenge 130 – Secure Accounts</span></div>
+                            <a href="documents/xp-challenge-130.pdf" target="_blank" class="btn-doc-open">Open</a>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-item-name"><i class="fas fa-file-pdf text-danger me-1"></i><span>Challenge 166 – Preventative Protection</span></div>
+                            <a href="documents/xp-challenge-166.pdf" target="_blank" class="btn-doc-open">Open</a>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-item-name"><i class="fas fa-file-pdf text-danger me-1"></i><span>Challenge 116 – Dangerous Drives</span></div>
+                            <a href="documents/xp-challenge-116.pdf" target="_blank" class="btn-doc-open">Open</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NETLAB Reports -->
+            <div class="col-md-4 fade-up">
+                <div class="doc-card">
+                    <div class="doc-icon-wrap"><i class="fas fa-flask"></i></div>
+                    <div class="doc-title">NETLAB Lab Reports</div>
+                    <button class="btn-doc-toggle" onclick="toggleDoc('netlab-list', this)">
+                        <i class="fas fa-chevron-down me-1"></i> View Documents (6)
+                    </button>
+                    <div id="netlab-list" class="doc-list text-start">
+                        <div class="doc-item">
+                            <div class="doc-item-name"><i class="fas fa-file-pdf text-danger me-1"></i><span>Labs 1–5 Completion Report</span></div>
+                            <a href="documents/netlab-labs-1-5.pdf" target="_blank" class="btn-doc-open">Open</a>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-item-name"><i class="fas fa-file-pdf text-danger me-1"></i><span>Labs 6–10 Completion Report</span></div>
+                            <a href="documents/netlab-labs-6-10.pdf" target="_blank" class="btn-doc-open">Open</a>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-item-name"><i class="fas fa-file-pdf text-danger me-1"></i><span>Labs 11–15 Completion Report</span></div>
+                            <a href="documents/netlab-labs-11-15.pdf" target="_blank" class="btn-doc-open">Open</a>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-item-name"><i class="fas fa-file-pdf text-danger me-1"></i><span>Labs 16–20 Completion Report</span></div>
+                            <a href="documents/netlab-labs-16-20.pdf" target="_blank" class="btn-doc-open">Open</a>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-item-name"><i class="fas fa-file-pdf text-danger me-1"></i><span>Labs 21–25 Completion Report</span></div>
+                            <a href="documents/netlab-labs-21-25.pdf" target="_blank" class="btn-doc-open">Open</a>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-item-name"><i class="fas fa-file-archive text-warning me-1"></i><span>All Labs Combined (ZIP)</span></div>
+                            <a href="documents/netlab-labs-all.zip" target="_blank" class="btn-doc-dl"><i class="fas fa-download me-1"></i> ZIP</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="row g-4">
-            <div class="col-md-3">
+    </div>
+</section>
+
+<!-- ====================================================
+     CONTACT
+===================================================== -->
+<section id="contact" class="contact-section">
+    <div class="container">
+        <div class="section-header fade-up text-center">
+            <span class="section-label" style="color:var(--cyan)">Get In Touch</span>
+            <h2 class="section-title" style="color:white;">Let's Connect</h2>
+            <p class="section-subtitle">Open to internships, SOC roles, and cybersecurity collaborations</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-6 col-md-3 fade-up">
                 <div class="contact-card" onclick="window.location.href='mailto:dryoshmustafa34@gmail.com'">
-                    <i class="fas fa-envelope contact-icon"></i>
+                    <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
                     <h5>Email</h5>
-                    <p class="small">dryoshmustafa34@gmail.com</p>
+                    <p>dryoshmustafa34@gmail.com</p>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="contact-card" onclick="window.open('https://www.instagram.com/dryosh.mustafa_/', '_blank')">
-                    <i class="fab fa-instagram contact-icon"></i>
+            <div class="col-6 col-md-3 fade-up">
+                <div class="contact-card" onclick="window.open('https://www.instagram.com/dryosh.mustafa_/','_blank')">
+                    <div class="contact-card-icon"><i class="fab fa-instagram"></i></div>
                     <h5>Instagram</h5>
-                    <p class="small">@dryosh.mustafa_</p>
+                    <p>@dryosh.mustafa_</p>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-6 col-md-3 fade-up">
                 <div class="contact-card" onclick="showComingSoon()">
-                    <i class="fab fa-linkedin contact-icon"></i>
+                    <div class="contact-card-icon"><i class="fab fa-linkedin"></i></div>
                     <h5>LinkedIn</h5>
-                    <p class="small">Coming Soon</p>
+                    <p>Coming Soon</p>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-6 col-md-3 fade-up">
                 <div class="contact-card" onclick="showComingSoon()">
-                    <i class="fab fa-github contact-icon"></i>
+                    <div class="contact-card-icon"><i class="fab fa-github"></i></div>
                     <h5>GitHub</h5>
-                    <p class="small">Coming Soon</p>
+                    <p>Coming Soon</p>
                 </div>
             </div>
         </div>
-    </section>
-</div>
+    </div>
+</section>
 
-<!-- Footer -->
+<!-- ====================================================
+     FOOTER
+===================================================== -->
 <footer class="footer">
     <div class="container">
-        <p class="mb-0">© 2026 Mustafa Dryosh — Cybersecurity Portfolio</p>
-        <p class="small mb-0 mt-2">
-            <i class="fas fa-flag-checkered me-1"></i> 25 NETLAB Labs 
-            | <i class="fas fa-trophy me-1"></i> 6 XP Challenges 
-            | <i class="fas fa-language me-1"></i> Bilingual (EN/AR)
+        <div class="footer-brand">Mustafa Dryosh</div>
+        <div class="footer-divider"></div>
+        <p>Cybersecurity Portfolio · Houston Community College</p>
+        <p>
+            <i class="fas fa-flask me-1"></i> 25 NETLAB Labs
+            &nbsp;·&nbsp;
+            <i class="fas fa-trophy me-1"></i> 6 XP Challenges
+            &nbsp;·&nbsp;
+            <i class="fas fa-language me-1"></i> Bilingual EN/AR
         </p>
-        <p class="small mb-0 mt-2 text-muted">Houston Community College | Last Updated: May 8, 2026</p>
+        <p style="margin-top:0.5rem;color:#334155;font-size:0.75rem;">
+            Last Updated: May 8, 2026
+        </p>
     </div>
 </footer>
 
-<!-- Back to Top -->
-<div class="back-to-top" id="backToTop">
-    <i class="fas fa-arrow-up"></i>
-</div>
-
-<!-- Screenshot Modal -->
+<!-- ====================================================
+     SCREENSHOT MODAL
+===================================================== -->
 <div class="modal fade" id="screenshotModal" tabindex="-1">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Completion Screenshot</h5>
+                <h5 class="modal-title"><i class="fas fa-image me-2"></i>Completion Screenshot</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
-            <div class="modal-body text-center">
-                <img id="modalImage" src="" alt="Screenshot" class="img-fluid rounded">
+            <div class="modal-body p-3">
+                <img id="modalImage" src="" alt="Screenshot" class="modal-img">
             </div>
         </div>
     </div>
 </div>
 
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 <script>
-    AOS.init({ duration: 800, once: true });
-    
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+/* ====================================================
+   SMOOTH SCROLL
+===================================================== */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // close mobile nav if open
+        const nav = document.getElementById('navbarNav');
+        if (nav.classList.contains('show')) {
+            bootstrap.Collapse.getInstance(nav)?.hide();
+        }
+    });
+});
+
+/* ====================================================
+   BACK TO TOP
+===================================================== */
+const btt = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+    btt.classList.toggle('visible', window.scrollY > 350);
+});
+btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ====================================================
+   SCROLL ANIMATIONS
+===================================================== */
+const fadeEls = document.querySelectorAll('.fade-up');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+fadeEls.forEach(el => observer.observe(el));
+
+/* ====================================================
+   SCREENSHOT MODAL
+===================================================== */
+const screenshotModal = document.getElementById('screenshotModal');
+screenshotModal.addEventListener('show.bs.modal', e => {
+    const btn = e.relatedTarget;
+    document.getElementById('modalImage').src = btn.getAttribute('data-img') || '';
+});
+
+/* ====================================================
+   DOCUMENT TOGGLE
+===================================================== */
+function toggleDoc(id, btn) {
+    const el = document.getElementById(id);
+    const isOpen = el.classList.contains('show');
+
+    // Close all
+    document.querySelectorAll('.doc-list').forEach(d => d.classList.remove('show'));
+    document.querySelectorAll('.btn-doc-toggle i').forEach(i => {
+        i.classList.remove('fa-chevron-up');
+        i.classList.add('fa-chevron-down');
+    });
+
+    if (!isOpen) {
+        el.classList.add('show');
+        const icon = btn.querySelector('i');
+        icon.classList.remove('fa-chevron-down');
+        icon.classList.add('fa-chevron-up');
+    }
+}
+
+// Close doc lists when clicking outside
+document.addEventListener('click', e => {
+    if (!e.target.closest('.doc-card')) {
+        document.querySelectorAll('.doc-list').forEach(d => d.classList.remove('show'));
+        document.querySelectorAll('.btn-doc-toggle i').forEach(i => {
+            i.classList.remove('fa-chevron-up');
+            i.classList.add('fa-chevron-down');
         });
-    });
-    
-    // Back to top
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) backToTop.classList.add('visible');
-        else backToTop.classList.remove('visible');
-    });
-    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    
-    // Modal image
-    const modal = document.getElementById('screenshotModal');
-    modal.addEventListener('show.bs.modal', function(event) {
-        const button = event.relatedTarget;
-        document.getElementById('modalImage').src = button.getAttribute('data-img');
-    });
-    
-    // Toggle document lists
-    function toggleDocument(id) {
-        const element = document.getElementById(id);
-        if (element.classList.contains('show')) {
-            element.classList.remove('show');
-        } else {
-            document.querySelectorAll('.doc-list').forEach(list => list.classList.remove('show'));
-            element.classList.add('show');
-        }
     }
-    
-    // Coming Soon Toast
-    let toastTimeout;
-    function showComingSoon() {
-        const toast = document.getElementById('toastMsg');
-        toast.classList.add('show');
-        clearTimeout(toastTimeout);
-        toastTimeout = setTimeout(() => toast.classList.remove('show'), 2000);
-    }
-    
-    // Close dropdowns when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!event.target.closest('.card') && !event.target.closest('.doc-list')) {
-            document.querySelectorAll('.doc-list').forEach(list => list.classList.remove('show'));
-        }
-    });
+});
+
+/* ====================================================
+   COMING SOON TOAST
+===================================================== */
+let toastTimer;
+function showComingSoon() {
+    const t = document.getElementById('toastMsg');
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+/* ====================================================
+   NAVBAR SCROLL SHRINK
+===================================================== */
+const navbar = document.querySelector('.navbar');
+window.addEventListener('scroll', () => {
+    navbar.style.padding = window.scrollY > 60 ? '0.6rem 0' : '0.9rem 0';
+});
 </script>
 </body>
 </html>
